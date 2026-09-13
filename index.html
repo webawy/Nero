@@ -3,274 +3,302 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>كل سنة وريماس طيبة</title>
+<title>لكِ وحدكِ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Reem+Kufi:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg-deep: #1a0b2e;
-    --bg-mid: #341a52;
-    --coral: #ff6f91;
-    --gold: #ffc93c;
-    --mint: #4ecdc4;
-    --cream: #fff6ea;
-    --violet-line: rgba(255,255,255,0.12);
+    --wine-deep:#3a0f18;
+    --wine:#5c1a28;
+    --ivory:#f3e6d8;
+    --gold:#c79a4b;
+    --gold-soft:#e3c98a;
+    --rose:#a8465a;
+    --ink:#2a0d13;
   }
 
-  *{ box-sizing: border-box; }
+  *{box-sizing:border-box;margin:0;padding:0;}
 
-  html, body{
-    margin:0; padding:0; height:100%;
-    background: radial-gradient(ellipse at 50% -10%, var(--bg-mid) 0%, var(--bg-deep) 60%);
-    font-family: 'Tajawal', sans-serif;
-    color: var(--cream);
-    overflow-x: hidden;
+  html,body{
+    background:var(--wine-deep);
+    min-height:100vh;
+    font-family:'Reem Kufi', sans-serif;
+    color:var(--ivory);
+    overflow-x:hidden;
   }
 
-  .stage{
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 48px 20px 80px;
-    text-align: center;
+  body{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:48px 16px 80px;
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(199,154,75,0.10), transparent 50%),
+      radial-gradient(ellipse at 85% 90%, rgba(168,70,90,0.18), transparent 55%),
+      linear-gradient(180deg, #2c0a11 0%, #3a0f18 40%, #4a1420 100%);
   }
 
-  /* rising balloons — one orchestrated load-in moment */
-  .balloon{
-    position: absolute;
-    bottom: -140px;
-    width: 46px;
-    height: 58px;
-    border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
-    opacity: 0;
-    animation: rise 7s ease-in forwards;
+  /* ---- decorative stars ---- */
+  .stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
   }
-  .balloon::after{
-    content:"";
+  .star{
     position:absolute;
-    bottom:-22px; left:50%;
-    width:1px; height:22px;
-    background: rgba(255,255,255,0.35);
-    transform: translateX(-50%);
+    width:3px;height:3px;
+    background:var(--gold-soft);
+    border-radius:50%;
+    opacity:0.35;
+    animation:twinkle 4s ease-in-out infinite;
   }
-  .b1{ left:8%;  background: var(--coral); animation-delay: .2s; }
-  .b2{ left:22%; background: var(--gold);  animation-delay: 1.1s; width:38px; height:48px;}
-  .b3{ left:72%; background: var(--mint);  animation-delay: .6s; }
-  .b4{ left:86%; background: var(--coral); animation-delay: 1.6s; width:34px; height:44px;}
-  .b5{ left:48%; background: var(--gold);  animation-delay: 2.1s; width:40px; height:52px;}
-
-  @keyframes rise{
-    0%{ transform: translateY(0) rotate(-4deg); opacity:0; }
-    8%{ opacity:0.9; }
-    85%{ opacity:0.85; }
-    100%{ transform: translateY(-115vh) rotate(6deg); opacity:0; }
+  @keyframes twinkle{
+    0%,100%{opacity:0.15;}
+    50%{opacity:0.7;}
   }
 
-  .eyebrow-emoji{
-    font-size: 34px;
-    margin-bottom: 6px;
-    opacity: 0;
-    animation: fadeIn .8s ease-out .3s forwards;
+  .frame{
+    position:relative;
+    z-index:1;
+    width:100%;
+    max-width:560px;
+  }
+
+  .seal-row{
+    display:flex;
+    justify-content:center;
+    margin-bottom:18px;
+  }
+  .seal{
+    width:64px;height:64px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--gold-soft), var(--gold) 55%, #8a672c 100%);
+    display:flex;align-items:center;justify-content:center;
+    font-size:28px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.4);
   }
 
   h1{
-    font-family: 'Lalezar', sans-serif;
-    font-weight: 400;
-    font-size: clamp(38px, 9vw, 76px);
-    line-height: 1.15;
-    margin: 0 0 6px;
-    background: linear-gradient(90deg, var(--gold), var(--coral) 55%, var(--mint));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    opacity: 0;
-    animation: fadeUp .9s ease-out .5s forwards;
+    font-family:'Aref Ruqaa', serif;
+    text-align:center;
+    font-size:clamp(28px,6vw,40px);
+    font-weight:700;
+    color:var(--gold-soft);
+    letter-spacing:0.5px;
+    margin-bottom:6px;
+    text-shadow:0 2px 12px rgba(0,0,0,0.35);
   }
 
-  .name{
-    font-family: 'Lalezar', sans-serif;
-    font-size: clamp(48px, 12vw, 96px);
-    color: var(--cream);
-    margin: 4px 0 18px;
-    opacity: 0;
-    animation: fadeUp .9s ease-out .75s forwards;
+  .subtitle{
+    text-align:center;
+    font-size:14px;
+    color:var(--rose);
+    opacity:0.9;
+    margin-bottom:36px;
+    letter-spacing:0.3px;
   }
 
-  .sub{
-    max-width: 480px;
-    font-size: 17px;
-    line-height: 1.9;
-    color: rgba(255,246,234,0.78);
-    margin: 0 auto 40px;
-    opacity: 0;
-    animation: fadeUp .9s ease-out 1s forwards;
+  .letter{
+    background:linear-gradient(180deg, rgba(243,230,216,0.06), rgba(243,230,216,0.02));
+    border:1px solid rgba(199,154,75,0.35);
+    border-radius:4px;
+    padding:40px 30px;
+    position:relative;
   }
-
-  @keyframes fadeUp{ from{opacity:0; transform: translateY(14px);} to{opacity:1; transform: translateY(0);} }
-  @keyframes fadeIn{ from{opacity:0;} to{opacity:1;} }
-
-  /* gift button */
-  .gift-btn{
-    position: relative;
-    font-family: 'Tajawal', sans-serif;
-    font-weight: 700;
-    font-size: 17px;
-    color: var(--bg-deep);
-    background: linear-gradient(90deg, var(--gold), var(--coral));
-    border: none;
-    padding: 16px 38px;
-    border-radius: 999px;
-    cursor: pointer;
-    box-shadow: 0 8px 30px rgba(255,111,145,0.35);
-    opacity: 0;
-    animation: fadeUp .9s ease-out 1.3s forwards;
-    transition: transform .25s ease, box-shadow .25s ease;
+  .letter::before,
+  .letter::after{
+    content:"";
+    position:absolute;
+    width:26px;height:26px;
+    border:2px solid var(--gold);
+    opacity:0.6;
   }
-  .gift-btn:hover{ transform: translateY(-3px); box-shadow: 0 12px 34px rgba(255,111,145,0.45); }
-  .gift-btn:active{ transform: translateY(0); }
-  .gift-btn:focus-visible{ outline: 3px solid var(--mint); outline-offset: 3px; }
-  .gift-btn.hidden{ display:none; }
+  .letter::before{top:-1px;right:-1px;border-left:none;border-bottom:none;}
+  .letter::after{bottom:-1px;left:-1px;border-right:none;border-top:none;}
 
-  /* message card */
-  .card{
-    max-width: 480px;
-    width: 100%;
-    margin-top: 8px;
-    background: linear-gradient(160deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
-    border: 1px solid var(--violet-line);
-    border-radius: 22px;
-    padding: 36px 30px 30px;
-    backdrop-filter: blur(6px);
-    display: none;
+  .line{
+    font-family:'Aref Ruqaa', serif;
+    font-size:clamp(18px,4vw,22px);
+    line-height:2.1;
+    color:var(--ivory);
+    text-align:center;
+    opacity:0;
+    transform:translateY(10px);
+    filter:blur(3px);
+    transition:opacity 1.1s ease, transform 1.1s ease, filter 1.1s ease;
   }
-  .card.show{
-    display: block;
-    animation: cardIn .6s cubic-bezier(.2,.8,.3,1.1) forwards;
+  .line.show{
+    opacity:1;
+    transform:translateY(0);
+    filter:blur(0);
   }
-  @keyframes cardIn{
-    from{ opacity:0; transform: scale(.92) translateY(10px); }
-    to{ opacity:1; transform: scale(1) translateY(0); }
-  }
+  .line + .line{ margin-top:14px; }
 
-  .card .heart{ font-size: 26px; margin-bottom: 12px; display:block; }
-
-  .card p{
-    font-size: 18px;
-    line-height: 2.1;
-    margin: 0 0 20px;
-    color: var(--cream);
-  }
-
-  .signature{
-    font-family: 'Lalezar', sans-serif;
-    font-size: 26px;
-    letter-spacing: 1px;
-    background: linear-gradient(90deg, var(--mint), var(--gold));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin: 0;
+  .line.big{
+    font-size:clamp(21px,5vw,26px);
+    color:var(--gold-soft);
   }
 
   .divider{
-    width: 46px; height: 3px; border-radius: 3px;
-    background: linear-gradient(90deg, var(--coral), var(--gold));
-    margin: 0 auto 20px;
-  }
-
-  /* confetti burst */
-  .confetti{
-    position: fixed;
-    top: -10px;
-    width: 8px; height: 14px;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  footer{
-    margin-top: 44px;
-    font-size: 12.5px;
-    color: rgba(255,246,234,0.4);
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:26px 0;
     opacity:0;
-    animation: fadeIn 1s ease-out 1.5s forwards;
+    transition:opacity 1.2s ease;
+  }
+  .divider.show{opacity:1;}
+  .divider .line-rule{flex:1;height:1px;background:linear-gradient(90deg, transparent, var(--gold), transparent);}
+  .divider .mark{color:var(--gold); font-size:14px;}
+
+  .list-wrap{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin:20px 0;
+  }
+  .list-item{
+    font-family:'Aref Ruqaa', serif;
+    font-size:clamp(17px,4vw,20px);
+    text-align:center;
+    color:var(--rose);
+    background:rgba(168,70,90,0.10);
+    border:1px solid rgba(199,154,75,0.25);
+    border-radius:30px;
+    padding:10px 18px;
+    opacity:0;
+    transform:scale(0.9);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+  .list-item.show{opacity:1; transform:scale(1);}
+
+  .signature{
+    text-align:center;
+    margin-top:34px;
+    opacity:0;
+    transition:opacity 1.4s ease;
+  }
+  .signature.show{opacity:1;}
+  .signature .heart{
+    font-size:26px;
+    display:block;
+    margin-bottom:8px;
+    animation:beat 1.8s ease-in-out infinite;
+  }
+  @keyframes beat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.15);}
+  }
+  .signature .sig-text{
+    font-family:'Aref Ruqaa', serif;
+    color:var(--gold-soft);
+    font-size:16px;
+    letter-spacing:0.5px;
+  }
+
+  .replay{
+    display:block;
+    margin:44px auto 0;
+    background:transparent;
+    border:1px solid var(--gold);
+    color:var(--gold-soft);
+    font-family:'Reem Kufi', sans-serif;
+    font-size:14px;
+    padding:10px 26px;
+    border-radius:30px;
+    cursor:pointer;
+    transition:background 0.3s ease, color 0.3s ease;
+  }
+  .replay:hover{
+    background:var(--gold);
+    color:var(--ink);
   }
 
   @media (prefers-reduced-motion: reduce){
-    *{ animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    .line, .divider, .list-item, .signature{
+      transition:none !important;
+      animation:none !important;
+    }
   }
 </style>
 </head>
 <body>
 
-<div class="stage" id="stage">
-  <div class="balloon b1"></div>
-  <div class="balloon b2"></div>
-  <div class="balloon b3"></div>
-  <div class="balloon b4"></div>
-  <div class="balloon b5"></div>
+<div class="stars" id="stars"></div>
 
-  <div class="eyebrow-emoji">🎂</div>
-  <h1>كل سنة وانتِ طيبة</h1>
-  <div class="name">ريماس</div>
-  <p class="sub">النهاردة يومك، وحابب اقولك حاجة بسيطة… اضغطي على الهدية 🎁</p>
+<div class="frame">
+  <div class="seal-row"><div class="seal">♡</div></div>
+  <h1>الى حبيبتي ريماس</h1>
 
-  <button class="gift-btn" id="giftBtn">افتحي هديتك 🎁</button>
+  <div class="letter" id="letter">
+    <p class="line" data-d="0">مش هنسى أبدًا أول يوم بدأت أكلمك فيه، ومكنتش أعرف إني هحبك أوي كده.</p>
+    <p class="line" data-d="200">حياتي بقت عبارة عنك، مش بفكر في أي حاجة غيرك، ومحبتش في الدنيا قد محبتك.</p>
+    <p class="line big" data-d="400">وعايز أقولك إني بحبك أوي بجد.</p>
+    <p class="line" data-d="600">عمري ما هفكر أبعد عنك، لأني حبيتك من قلبي، ومش شايف ولا هشوف غيرك يا نور عيني.</p>
+    <p class="line" data-d="800">آه، مش بشوفك كل يوم، بس بحبك كل يوم أكتر من اللي قبله.</p>
+    <p class="line big" data-d="1000">ومهما يحصل منك، بحبك برضو يا قمري وروحي وحياتي.</p>
 
-  <div class="card" id="card">
-    <span class="heart">💛</span>
-    <div class="divider"></div>
-    <p>
-      كل سنة وانتِ بخير يا ريماس، وربنا يخليكِ ويسعدك دايمًا.<br><br>
-      وجودك دخل على قلبي فرحة كنت محتاجها، وحسيت إني لقيت تعويض حلو عن كل اللي فات.<br>
-      يومك ده يستاهل كل حاجة حلوة، زي ما انتِ حلوة. 🌸
-    </p>
-    <p class="signature">Z!XO</p>
+    <div class="divider" data-d="1150"><span class="line-rule"></span><span class="mark">✦</span><span class="line-rule"></span></div>
+
+    <p class="line" data-d="1250">وعايزك تعرفي:</p>
+
+    <div class="list-wrap">
+      <div class="list-item" data-d="1450">هفضل أحبك</div>
+      <div class="list-item" data-d="1600">هفضل روحي فيكي</div>
+      <div class="list-item" data-d="1750">هتفضلي مميزة عندي</div>
+      <div class="list-item" data-d="1900">هفضل حنين عليكي</div>
+      <div class="list-item" data-d="2050">هفضل خايف عليكي</div>
+    </div>
+
+    <div class="divider" data-d="2250"><span class="line-rule"></span><span class="mark">✦</span><span class="line-rule"></span></div>
+
+    <p class="line" data-d="2350">ولما بقولك بحبك، مش بفكرها كل شوية وخلاص، أنا بعد كل مرة بحبك أكتر.</p>
+    <p class="line" data-d="2550">وانتي أكتر حد قلبي بيفرح وهو معاه.</p>
+    <p class="line big" data-d="2750">بحبك يا عيوني.</p>
+    <p class="line" data-d="2950">لدرجة إني بقيت حاسس إن كلمة "بحبك" نفسها بقت حاجة صغيرة قدام حجم الحب اللي ليكي في قلبي.</p>
+
+    <div class="signature" data-d="3250">
+      <span class="heart">♡</span>
+      <span class="sig-text">من قلب ما هيتغير</span>
+      <span class="sig-text" style="display:block; margin-top:10px; font-size:18px;">من زياد💓</span>
+    </div>
   </div>
 
-  <footer>صُنعت بحب 💫</footer>
+  <button class="replay" id="replayBtn">أعد القراءة من البداية</button>
 </div>
 
 <script>
-  const btn = document.getElementById('giftBtn');
-  const card = document.getElementById('card');
-
-  function burstConfetti(){
-    const colors = ['#ff6f91', '#ffc93c', '#4ecdc4', '#fff6ea'];
-    const count = 60;
+  function scatterStars(){
+    const wrap = document.getElementById('stars');
+    wrap.innerHTML = '';
+    const count = window.innerWidth < 500 ? 40 : 70;
     for(let i=0;i<count;i++){
-      const el = document.createElement('div');
-      el.className = 'confetti';
-      el.style.left = Math.random()*100 + 'vw';
-      el.style.background = colors[Math.floor(Math.random()*colors.length)];
-      el.style.borderRadius = Math.random() > .5 ? '50%' : '2px';
-      const duration = 2.2 + Math.random()*1.6;
-      const delay = Math.random()*0.4;
-      const rotate = Math.random()*360;
-      el.style.transform = `rotate(${rotate}deg)`;
-      el.style.animation = `confettiFall ${duration}s ease-in ${delay}s forwards`;
-      document.body.appendChild(el);
-      setTimeout(()=> el.remove(), (duration+delay)*1000 + 200);
+      const s = document.createElement('div');
+      s.className = 'star';
+      s.style.left = Math.random()*100 + '%';
+      s.style.top = Math.random()*100 + '%';
+      s.style.animationDelay = (Math.random()*4) + 's';
+      wrap.appendChild(s);
     }
   }
+  scatterStars();
 
-  const styleSheet = document.createElement('style');
-  styleSheet.textContent = `
-    @keyframes confettiFall{
-      0%{ opacity:0; transform: translateY(0) rotate(0deg); }
-      10%{ opacity:1; }
-      100%{ opacity:0.9; transform: translateY(100vh) rotate(340deg); }
-    }
-  `;
-  document.head.appendChild(styleSheet);
+  function playSequence(){
+    const els = document.querySelectorAll('.letter [data-d]');
+    els.forEach(el => el.classList.remove('show'));
+    els.forEach(el => {
+      const delay = parseInt(el.getAttribute('data-d'), 10);
+      setTimeout(() => el.classList.add('show'), delay);
+    });
+  }
 
-  btn.addEventListener('click', () => {
-    burstConfetti();
-    card.classList.add('show');
-    btn.classList.add('hidden');
-    card.scrollIntoView({behavior:'smooth', block:'center'});
+  playSequence();
+
+  document.getElementById('replayBtn').addEventListener('click', () => {
+    playSequence();
+    document.getElementById('letter').scrollIntoView({behavior:'smooth', block:'start'});
   });
 </script>
 
